@@ -26,7 +26,8 @@
                 "identity",
                 "aad-app",
                 "teams-tab",
-                "teams-bot"
+                "teams-bot",
+                "teams-api"
             ]
         },
         {
@@ -51,6 +52,29 @@
             "name": "aad-app",
             "provision": true,
             "deploy": true
+        },
+        {
+            "name": "teams-api",
+            "hosting": "azure-function",
+            "functionNames": [
+                "getUserProfile"
+            ],
+            "deploy": true,
+            "build": true,
+            "folder": "api",
+            "artifactFolder": "api"
+        },
+        {
+            "name": "azure-function",
+            "scenario": "Api",
+            "provision": true,
+            "connections": [
+                "identity",
+                "aad-app",
+                "teams-tab",
+                "teams-bot",
+                "teams-api"
+            ]
         }
     ],
     "programmingLanguage": "typescript",
@@ -58,7 +82,9 @@
         "name": "fx-solution-azure",
         "version": "1.0.0",
         "hostType": "Azure",
-        "azureResources": [],
+        "azureResources": [
+            "function"
+        ],
         "capabilities": [
             "Tab",
             "TabSSO",
@@ -73,7 +99,8 @@
             "fx-resource-aad-app-for-teams",
             "fx-resource-frontend-hosting",
             "fx-resource-bot",
-            "fx-resource-identity"
+            "fx-resource-identity",
+            "fx-resource-function"
         ]
     },
     "pluginSettings": {
@@ -83,5 +110,6 @@
                 "command-response"
             ]
         }
-    }
+    },
+    "defaultFunctionName": "getUserProfile"
 }
