@@ -49,3 +49,25 @@ output identityOutput object = {
   identityResourceId: userAssignedIdentityProvision.outputs.identityResourceId
   identityClientId: userAssignedIdentityProvision.outputs.identityClientId
 }
+
+// Resources for frontend hosting
+module azureStorageTabProvision './provision/azureStorageTab.bicep' = {
+  name: 'azureStorageTabProvision'
+  params: {
+    provisionParameters: provisionParameters
+  }
+}
+
+output azureStorageTabOutput object = {
+  teamsFxPluginId: 'teams-tab'
+  domain: azureStorageTabProvision.outputs.domain
+  endpoint: azureStorageTabProvision.outputs.endpoint
+  indexPath: azureStorageTabProvision.outputs.indexPath
+  storageResourceId: azureStorageTabProvision.outputs.storageResourceId
+}
+
+
+output TabOutput object = {
+  domain: azureStorageTabProvision.outputs.domain
+  endpoint: azureStorageTabProvision.outputs.endpoint
+}

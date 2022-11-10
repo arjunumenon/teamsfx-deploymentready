@@ -2,6 +2,34 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch Bot (Edge)",
+            "type": "pwa-msedge",
+            "request": "launch",
+            "url": "https://teams.microsoft.com/l/app/${localTeamsAppId}?installAppPackage=true&webjoin=true&${account-hint}",
+            "cascadeTerminateToConfigurations": [
+                "Attach to Bot"
+            ],
+            "presentation": {
+                "group": "all",
+                "hidden": true
+            },
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "name": "Launch Bot (Chrome)",
+            "type": "pwa-chrome",
+            "request": "launch",
+            "url": "https://teams.microsoft.com/l/app/${localTeamsAppId}?installAppPackage=true&webjoin=true&${account-hint}",
+            "cascadeTerminateToConfigurations": [
+                "Attach to Bot"
+            ],
+            "presentation": {
+                "group": "all",
+                "hidden": true
+            },
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
             "name": "Launch Remote (Edge)",
             "type": "pwa-msedge",
             "request": "launch",
@@ -24,7 +52,7 @@
             "internalConsoleOptions": "neverOpen"
         },
         {
-            "name": "Launch Bot (Edge)",
+            "name": "Attach to Frontend (Edge)",
             "type": "pwa-msedge",
             "request": "launch",
             "url": "https://teams.microsoft.com/l/app/${localTeamsAppId}?installAppPackage=true&webjoin=true&${account-hint}",
@@ -38,7 +66,7 @@
             "internalConsoleOptions": "neverOpen"
         },
         {
-            "name": "Launch Bot (Chrome)",
+            "name": "Attach to Frontend (Chrome)",
             "type": "pwa-chrome",
             "request": "launch",
             "url": "https://teams.microsoft.com/l/app/${localTeamsAppId}?installAppPackage=true&webjoin=true&${account-hint}",
@@ -68,7 +96,7 @@
         {
             "name": "Debug (Edge)",
             "configurations": [
-                "Launch Bot (Edge)",
+                "Attach to Frontend (Edge)",
                 "Attach to Bot"
             ],
             "preLaunchTask": "Start Teams App Locally",
@@ -81,7 +109,7 @@
         {
             "name": "Debug (Chrome)",
             "configurations": [
-                "Launch Bot (Chrome)",
+                "Attach to Frontend (Chrome)",
                 "Attach to Bot"
             ],
             "preLaunchTask": "Start Teams App Locally",
