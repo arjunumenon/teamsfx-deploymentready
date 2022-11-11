@@ -24,15 +24,15 @@ function doDeleteAzureFunctionfiles {
 
 function doDeletionStateFiles {
     # Deletion of all state files for fresh provisioning
-    Set-Location $PSScriptRoot + "\.fx\states"
+    Set-Location -Path $PSScriptRoot"\.fx\states"
     Remove-Item -Recurse -Force .\*
-    Set-Location $PSScriptRoot
+    Set-Location -Path $PSScriptRoot
     Write-Host "Removed .fx state files Files.." -foreground Green
 }
 
 function doDeletionBotfiles {
     # Deletion for Bot
-    Set-Location $PSScriptRoot + "\bot"
+    Set-Location -Path $PSScriptRoot"\bot"
     $deletionFolders = @(
         ".\.deployment\",
         ".\lib\",
@@ -43,13 +43,13 @@ function doDeletionBotfiles {
             Remove-Item -Recurse -Force $folder
         }
     }
-    Set-Location $PSScriptRoot
+    Set-Location -Path $PSScriptRoot
     Write-Host "Removed Bot Build Files.." -foreground Green
 }
 
 function doDeletionTabfiles {
     # Deletion for Bot
-    Set-Location $PSScriptRoot + "\tabs"
+    Set-Location -Path $PSScriptRoot"\tabs"
     $deletionFolders = @(
         ".\.deployment\",
         ".\build\",
@@ -83,17 +83,17 @@ function doDeletionforPortingFolder {
     # Delete State files
     doDeletionStateFiles
 
-    # # Delete Azure Function Files
-    # doDeleteAzureFunctionfiles
+    # Delete Azure Function Files
+    doDeleteAzureFunctionfiles
 
-    # # Delete Bot Files
-    # doDeletionBotfiles
+    # Delete Bot Files
+    doDeletionBotfiles
 
-    # # Delete Tab Files
-    # doDeletionTabfiles
+    # Delete Tab Files
+    doDeletionTabfiles
 
-    # # Delete App Package Files
-    # doDeletionAppackagefiles
+    # Delete App Package Files
+    doDeletionAppackagefiles
 
 }
 
