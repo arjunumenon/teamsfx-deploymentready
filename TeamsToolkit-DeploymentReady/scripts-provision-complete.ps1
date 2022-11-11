@@ -4,7 +4,7 @@ Execute the complete Provisioning of the Teams App Artefacts tp Azure
 .DESCRIPTION
 .EXAMPLE
 .\scripts-provision-complete.ps1 -environmentName "dev" -resourcegroupName "Teams-Dev-TCS"
-Delete all the resources from a specified resource group
+Provision all the Teams App Artefacts to Azure
 #>
 Param(
     [Parameter(Mandatory = $true)]
