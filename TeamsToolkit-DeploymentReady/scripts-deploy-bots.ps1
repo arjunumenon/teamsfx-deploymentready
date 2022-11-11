@@ -11,8 +11,8 @@ Param(
     [string]$environmentName = "dev"
 )
 
-function doDeploymentComplete {
+function doDeploymentBot {
     teamsfx deploy bot  --env $environmentName --interactive false
 }
 
-doDeploymentComplete
+doDeploymentBot
