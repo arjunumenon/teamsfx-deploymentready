@@ -3,7 +3,7 @@
 Deploy all the build files to the Azure Services
 .DESCRIPTION
 .EXAMPLE
-.\scripts-deploy-bots.ps1 -environmentName "dev"
+.\scripts-deploy-complete.ps1 -environmentName "dev"
 Provision all the Teams App Artefacts to Azure
 #>
 Param(
@@ -11,8 +11,9 @@ Param(
     [string]$environmentName = "dev"
 )
 
-function doDeploymentComplete {
-    teamsfx deploy bot  --env $environmentName --interactive false
+function doDeploymentComplete{
+    # Deploy Bot files
+    .\scripts-deploy-bots.ps1 -environmentName $environmentName
 }
 
 doDeploymentComplete
