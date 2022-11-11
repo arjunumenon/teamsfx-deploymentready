@@ -12,14 +12,14 @@ Param(
 )
 
 function doDeploymentComplete {
-    # # Deploy Bot files
-    # .\scripts-deploy-bots.ps1 -environmentName $environmentName
+    # Deploy Bot files
+    .\scripts-deploy-bots.ps1 -environmentName $environmentName
 
-    # # Deploy Azure Function files
-    # .\scripts-deploy-azurefunction.ps1 -environmentName $environmentName
+    # Deploy Azure Function files
+    .\scripts-deploy-azurefunction.ps1 -environmentName $environmentName
 
-    # # Deploy Tab Files
-    # .\scripts-deploy-tabs.ps1 -environmentName $environmentName
+    # Deploy Tab Files
+    .\scripts-deploy-tabs.ps1 -environmentName $environmentName
 
     # Package Teams app for the Environment
     .\scripts-package-teamsapp.ps1 -environmentName $environmentName
