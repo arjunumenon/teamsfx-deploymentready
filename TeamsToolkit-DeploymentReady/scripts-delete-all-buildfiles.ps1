@@ -18,6 +18,8 @@ function doDeleteAzureFunctionfiles {
     # Remove-Item -Recurse -Force .\node_modules\
     # Remove-Item -Recurse -Force .\obj\
     # cd ..
+
+    Write-Host "Removed Azure Function Build Files.." -foreground Green
 }
 
 function doDeletionStateFiles {
@@ -26,6 +28,7 @@ function doDeletionStateFiles {
     Remove-Item -Recurse -Force .\*
     cd ..
     cd ..
+    Write-Host "Removed .fx state files Files.." -foreground Green
 }
 
 function doDeletionBotfiles {
@@ -42,6 +45,7 @@ function doDeletionBotfiles {
         }
     }
     cd ..
+    Write-Host "Removed Bot Build Files.." -foreground Green
 }
 
 function doDeletionTabfiles {
@@ -58,11 +62,11 @@ function doDeletionTabfiles {
         }
     }
     cd ..
+    Write-Host "Removed Tab Build Files.." -foreground Green
 }
 
-function doDeletionApppackagefiles {
-    # Deletion for Bot
-    cd tabs
+function doDeletionAppackagefiles {
+    # Deletion of Teams App Package Files
     $deletionFolders = @(
         ".\build\"
     );
@@ -71,7 +75,8 @@ function doDeletionApppackagefiles {
             Remove-Item -Recurse -Force $folder
         }
     }
-    cd ..
+
+    Write-Host "Removed Teams App Packages" -foreground Green
 }
 
 function doDeletionforPortingFolder {
@@ -89,7 +94,7 @@ function doDeletionforPortingFolder {
     doDeletionTabfiles
 
     # Delete App Package Files
-    doDeletionApppackagefiles
+    doDeletionAppackagefiles
 
 }
 
