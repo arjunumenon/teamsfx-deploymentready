@@ -1,6 +1,8 @@
 # Overview of the Deployable Teams Template
 
-The objective of this repository is to provide a template for building a deployable Teams application. This respository has a folder named `deploy-scripts` which contains the scripts to deploy the application to Azure. The `deploy-scripts` folder contains the following files:
+The objective of this repository is to provide a template for building a deployable Teams application which is build using Teams Toolkit for Visual Studio Code. This will be useful for scenarios where you need to deploy project built on Teams Toolkit from a different environment than the one where it was built. For deploying the files, you do not need to install Visual Studio Code or Teams Toolkit. We just need PowerShell and TeamsFx CLI installed on the machine. More details are given in [Pre-requisite section](#prerequisites).
+
+This respository has a folder named `deploy-scripts` inside the Teams Toolkit Project Folder which contains the scripts to deploy the application to Azure. The `deploy-scripts` folder contains the following files:
 
 1. script-delete-all-buildfiles.ps1
 2. script-deploy-azurefunction.ps1
@@ -15,14 +17,16 @@ If you are interested in knowing the purpose of each script, we have given detai
 
 _Sample Script Screenshot_
 
-![Sample Script Screenshot](./TeamsToolkit-DeploymentReady/readme-images/script-sample-documentation.png)
+![Sample Script Screenshot](./readme-images/script-sample-documentation.png)
 
 ## Get Started with the deployment
+
+Please note that the script deployed is applicable only to the Teams App Project built on Teams toolkit. If you are not familiar with Teams Toolkit, please refer to the [Teams Toolkit Documentation](https://aka.ms/teamsfx-docs). This script was built based on Teams Toolkit Version 4.1.3.
 
 >
 > ### Prerequisites
 >
-> To run the command bot template in your local dev machine, you will need:
+> To deploy the Teams App Project, you need to have the following installed on the deployment server:
 >
 > - `PowerShell` installed in the machine
 > - `Node.js` installed locally (recommended version: 16)
@@ -30,7 +34,7 @@ _Sample Script Screenshot_
 >
 ### Prepare for the transportation of the files for deployment
 
-First step before the deployment would be to move the files from the Teams Toolkit folder from the development machine to machine from where the files will be deployed to Azure. For that, we need to ensure that only the required files need to be moved to the deployment server.
+First step before the deployment would be to move the files from the Teams Toolkit folder of the development machine to deployment machine from where the files will be deployed to Azure. For that, we need to ensure that only the required files need to be moved to the deployment server.
 For doing that, you need to :
 
 >**NOTE**
@@ -41,7 +45,7 @@ For doing that, you need to :
 - Execute the command `.\script-delete-all-buildfiles.ps1` to delete all the build files from the Teams Toolkit project folder.
 - Once execution is complete, you will see a result like the one shown below:
 
-![delete-all-image](./TeamsToolkit-DeploymentReady/readme-images/delete-all.png)
+![delete-all-image](./readme-images/delete-all.png)
 
 - This will ensure that only needed files are remaining the Teams Toolkit project folder.
 - Then zip the complete project folder and move the zip file to the deployment server.
@@ -59,7 +63,7 @@ To provision Azure resources, follow the steps below
 - If login is succesful, the provisioning will start. The provisioning will take a few minutes to complete.
 - Once provisioning is completed, you will be able to see the screen as shown below
 
-![provision-complete](./TeamsToolkit-DeploymentReady/readme-images/provision-complete-all.png)
+![provision-complete](./readme-images/provision-complete-all.png)
 
 ### 2. Deploy resources
 
@@ -80,3 +84,17 @@ To deploy all resources at once, follow the steps below
 - Once complete deployment is done, you will be able to see the screen as shown below
 
 ![deploy-complete](./readme-images/deploy-complete-all.png)
+
+#### 2.2 Deploy resources individually
+
+To deploy a specific resource, follow the steps below
+
+- Open `PowerShell` in the `deploy-scripts` folder
+- For each resource type there are dedicated script files. For example, to deploy the Azure Function, execute the command `.\script-deploy-azurefunction.ps1 -environmentName "dev"` where `environmentName` is the name of the environment.
+- Once complete deployment is done, you will be able to see the screen as shown below
+
+![deploy-azurefunction](./readme-images/deploy-specific-azurefunction.png)
+
+## Issues and Support
+
+For any issues related to the deployment, please raise an issue in this repository. We will try to resolve the issue as soon as possible.
