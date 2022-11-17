@@ -26,7 +26,7 @@ function doDeletionStateFiles {
     # Deletion of all state files for fresh provisioning
 
     # Setting the location to be root of the Teams Toolkit Folder and deleting files
-    $rootTeamsToolkitFolder = getRootlocationPath
+    $rootTeamsToolkitFolder = .\script-get-toolkitRootfolder.ps1
     Set-Location -Path $rootTeamsToolkitFolder"\.fx\states"
     Remove-Item -Recurse -Force .\*
 
@@ -38,7 +38,7 @@ function doDeletionStateFiles {
 function doDeletionBotfiles {
     # Deletion for Bot
     # Setting the location to be root of the Teams Toolkit Folder and deleting files
-    $rootTeamsToolkitFolder = getRootlocationPath
+    $rootTeamsToolkitFolder = .\script-get-toolkitRootfolder.ps1
     Set-Location -Path $rootTeamsToolkitFolder"\bot"
     $deletionFolders = @(
         ".\.deployment\",
@@ -58,7 +58,7 @@ function doDeletionBotfiles {
 function doDeletionTabfiles {
     # Deletion for Tab
     # Setting the location to be root of the Teams Toolkit Folder and deleting files
-    $rootTeamsToolkitFolder = getRootlocationPath
+    $rootTeamsToolkitFolder = .\script-get-toolkitRootfolder.ps1
     Set-Location -Path $rootTeamsToolkitFolder"\tabs"
     $deletionFolders = @(
         ".\.deployment\",
@@ -78,7 +78,7 @@ function doDeletionTabfiles {
 function doDeletionAppackagefiles {
     # Deletion of Teams App Package Files
     # Setting the location to be root of the Teams Toolkit Folder and deleting files
-    $rootTeamsToolkitFolder = getRootlocationPath
+    $rootTeamsToolkitFolder = .\script-get-toolkitRootfolder.ps1
     Set-Location -Path $rootTeamsToolkitFolder
     $deletionFolders = @(
         ".\build\"
@@ -95,30 +95,30 @@ function doDeletionAppackagefiles {
 }
 
 # Get the location path of the Root folder
-function getRootlocationPath {
-    $completePath = $PSScriptRoot
+# function getRootlocationPath {
+#     $completePath = $PSScriptRoot
 
-    $executionPath = $completePath.Substring(0, $completePath.LastIndexOf("\"))
+#     $executionPath = $completePath.Substring(0, $completePath.LastIndexOf("\"))
 
-    return $executionPath
-}
+#     return $executionPath
+# }
 
 function doDeletionforPortingFolder {
 
     # Delete State files
     doDeletionStateFiles
 
-    # Delete Azure Function Files
-    doDeleteAzureFunctionfiles
+    # # Delete Azure Function Files
+    # doDeleteAzureFunctionfiles
 
-    # Delete Bot Files
-    doDeletionBotfiles
+    # # Delete Bot Files
+    # doDeletionBotfiles
 
-    # Delete Tab Files
-    doDeletionTabfiles
+    # # Delete Tab Files
+    # doDeletionTabfiles
 
-    # Delete App Package Files
-    doDeletionAppackagefiles
+    # # Delete App Package Files
+    # doDeletionAppackagefiles
 
 }
 
