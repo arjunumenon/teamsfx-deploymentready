@@ -24,7 +24,9 @@ function doDeleteAzureFunctionfiles {
 
 function doDeletionStateFiles {
     # Deletion of all state files for fresh provisioning
-    Set-Location -Path $PSScriptRoot"\.fx\states"
+    $rootTeamsToolkitFolder = getRootlocationPath
+    Set-Location -Path $rootTeamsToolkitFolder"\.fx\states"
+    
     Remove-Item -Recurse -Force .\*
     Set-Location -Path $PSScriptRoot
     Write-Host "Removed .fx state files Files.." -foreground Green
@@ -113,7 +115,7 @@ function doDeletionforPortingFolder {
 
 }
 
-setExecutionLocation
+# setExecutionLocation
 doDeletionforPortingFolder
 
 # Write-Host $PSScriptRoot
