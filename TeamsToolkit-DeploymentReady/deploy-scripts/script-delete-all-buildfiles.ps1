@@ -10,11 +10,11 @@
     PS C:\> .\script-delete-all-buildfiles.ps1 
     Clears all the build files
 .INPUTS
-    Inputs (if any)
+    None. You cannot pipe objects to script-delete-all-buildfiles.ps1.
 .OUTPUTS
-    Output (if any)
+    None. Shows the success messages for the execution
 .NOTES
-    This script is to prepare for porting to production deployment.
+    None
 #>
 Param(
 )
