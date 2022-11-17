@@ -94,31 +94,22 @@ function doDeletionAppackagefiles {
     Write-Host "Removed Teams App Packages" -foreground Green
 }
 
-# Get the location path of the Root folder
-# function getRootlocationPath {
-#     $completePath = $PSScriptRoot
-
-#     $executionPath = $completePath.Substring(0, $completePath.LastIndexOf("\"))
-
-#     return $executionPath
-# }
-
 function doDeletionforPortingFolder {
 
     # Delete State files
     doDeletionStateFiles
 
-    # # Delete Azure Function Files
-    # doDeleteAzureFunctionfiles
+    # Delete Azure Function Files
+    doDeleteAzureFunctionfiles
 
-    # # Delete Bot Files
-    # doDeletionBotfiles
+    # Delete Bot Files
+    doDeletionBotfiles
 
-    # # Delete Tab Files
-    # doDeletionTabfiles
+    # Delete Tab Files
+    doDeletionTabfiles
 
-    # # Delete App Package Files
-    # doDeletionAppackagefiles
+    # Delete App Package Files
+    doDeletionAppackagefiles
 
 }
 
