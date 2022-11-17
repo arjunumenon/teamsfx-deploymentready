@@ -3,7 +3,7 @@
 Execute the clearing of all build files for preparing for porting to production deployment
 .DESCRIPTION
 .EXAMPLE
-.\scripts-delete-all-buildfiles.ps1 
+.\script-delete-all-buildfiles.ps1 
 Clears all the build files
 #>
 Param(
