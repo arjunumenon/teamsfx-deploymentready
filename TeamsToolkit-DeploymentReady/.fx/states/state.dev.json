@@ -1,0 +1,59 @@
+{
+    "solution": {
+        "provisionSucceeded": true,
+        "teamsAppTenantId": "095efa67-57fa-40c7-b7cc-e96dc3e5780c",
+        "subscriptionId": "9f6c8d04-7a32-46d1-86f2-37766420bee0",
+        "subscriptionName": "Visual Studio Enterprise Subscription",
+        "tenantId": "095efa67-57fa-40c7-b7cc-e96dc3e5780c",
+        "needCreateResourceGroup": false,
+        "resourceGroupName": "Teams-Dev-TCS",
+        "location": "eastus",
+        "resourceNameSuffix": "366604"
+    },
+    "fx-resource-appstudio": {
+        "tenantId": "095efa67-57fa-40c7-b7cc-e96dc3e5780c",
+        "teamsAppId": "1cdfe429-6b0a-4bc2-9d2b-baa935bea4dd"
+    },
+    "fx-resource-frontend-hosting": {
+        "indexPath": "/index.html#",
+        "domain": "aumdeployreadyapptab.z13.web.core.windows.net",
+        "endpoint": "https://aumdeployreadyapptab.z13.web.core.windows.net",
+        "storageResourceId": "/subscriptions/9f6c8d04-7a32-46d1-86f2-37766420bee0/resourceGroups/Teams-Dev-TCS/providers/Microsoft.Storage/storageAccounts/aumdeployreadyapptab"
+    },
+    "fx-resource-aad-app-for-teams": {
+        "clientId": "77f0728b-6725-4c5f-aac4-764153befb11",
+        "clientSecret": "{{fx-resource-aad-app-for-teams.clientSecret}}",
+        "objectId": "d0fc0fd6-1719-4a12-9654-f49d5d27240f",
+        "oauth2PermissionScopeId": "e0b144e5-e20e-49d3-b0da-5b4b1b34d3a3",
+        "tenantId": "095efa67-57fa-40c7-b7cc-e96dc3e5780c",
+        "oauthHost": "https://login.microsoftonline.com",
+        "oauthAuthority": "https://login.microsoftonline.com/095efa67-57fa-40c7-b7cc-e96dc3e5780c",
+        "applicationIdUris": "api://aumdeployreadyapptab.z13.web.core.windows.net/botid-ba281f4b-7a2e-48c1-935f-73e1a9880ccb",
+        "botId": "ba281f4b-7a2e-48c1-935f-73e1a9880ccb",
+        "botEndpoint": "https://aumdeployreadyappbot.azurewebsites.net",
+        "frontendEndpoint": "https://aumdeployreadyapptab.z13.web.core.windows.net"
+    },
+    "fx-resource-bot": {
+        "botId": "ba281f4b-7a2e-48c1-935f-73e1a9880ccb",
+        "botPassword": "{{fx-resource-bot.botPassword}}",
+        "skuName": "B1",
+        "siteName": "aumdeployreadyappbot",
+        "domain": "aumdeployreadyappbot.azurewebsites.net",
+        "appServicePlanName": "aumdeployreadyappbot",
+        "resourceId": "/subscriptions/9f6c8d04-7a32-46d1-86f2-37766420bee0/resourceGroups/Teams-Dev-TCS/providers/Microsoft.Web/sites/aumdeployreadyappbot",
+        "siteEndpoint": "https://aumdeployreadyappbot.azurewebsites.net"
+    },
+    "fx-resource-identity": {
+        "identityName": "aumdeployreadyapp",
+        "identityResourceId": "/subscriptions/9f6c8d04-7a32-46d1-86f2-37766420bee0/resourceGroups/Teams-Dev-TCS/providers/Microsoft.ManagedIdentity/userAssignedIdentities/aumdeployreadyapp",
+        "identityClientId": "0d8c7406-1cf5-45c3-94d4-f17fc12509f0"
+    },
+    "fx-resource-function": {
+        "sku": "B1",
+        "appName": "aumdeployreadyappapi",
+        "domain": "aumdeployreadyappapi.azurewebsites.net",
+        "appServicePlanName": "aumdeployreadyappapi",
+        "functionAppResourceId": "/subscriptions/9f6c8d04-7a32-46d1-86f2-37766420bee0/resourceGroups/Teams-Dev-TCS/providers/Microsoft.Web/sites/aumdeployreadyappapi",
+        "functionEndpoint": "https://aumdeployreadyappapi.azurewebsites.net"
+    }
+}

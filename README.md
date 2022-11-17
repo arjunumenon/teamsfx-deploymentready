@@ -22,21 +22,23 @@ The objective of this repository is to provide a template for building a deploya
 > - `Node.js` installed locally (recommended version: 16)
 > - `TeamsFx CLI` installed. Refer [here](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/teamsfx-cli#get-started) for installing the TeamsFx CLI.
 >
-> ### Prepare for the transportation of the files for deployment
->
-> First step before the deployment would be to move the files from the Teams Toolkit folder from the development machine to machine from where the files will be deployed to Azure. For that, we need to ensure that only the required files need to be moved to the deployment server.
-> For doing that, you need to :
->
-> **It is recommended to push the files to Git / any source safe before doing the below steps so that none of the needed files are lost**
->
-> - Copy the complete folder `deploy-scripts` to the Teams Toolkit project folder which is there in the development machine
-> - Open `PowerShell` in the `deploy-scripts` folder.
-> - Execute the command `.\script-delete-all-buildfiles.ps1` to delete all the build files from the Teams Toolkit project folder.
-> - Once execution is complete, you will see a result like the one shown below:
-> ![delete-all-image](./TeamsToolkit-DeploymentReady/readme-images/delete-all.png)
-> - This will ensure that only needed files are remaining the Teams Toolkit project folder.
-> - Then zip the complete project folder and move the zip file to the deployment server.
->
+### Prepare for the transportation of the files for deployment
+
+First step before the deployment would be to move the files from the Teams Toolkit folder from the development machine to machine from where the files will be deployed to Azure. For that, we need to ensure that only the required files need to be moved to the deployment server.
+For doing that, you need to :
+
+>**NOTE**
+> It is recommended to push the files to Git / any source safe before doing the below steps so that none of the needed files are lost**
+
+- Copy the complete folder `deploy-scripts` to the Teams Toolkit project folder which is there in the development machine
+- Open `PowerShell` in the `deploy-scripts` folder.
+- Execute the command `.\script-delete-all-buildfiles.ps1` to delete all the build files from the Teams Toolkit project folder.
+- Once execution is complete, you will see a result like the one shown below:
+
+![delete-all-image](./TeamsToolkit-DeploymentReady/readme-images/delete-all.png)
+
+- This will ensure that only needed files are remaining the Teams Toolkit project folder.
+- Then zip the complete project folder and move the zip file to the deployment server.
 
 ### 1. Provision Azure resources
 
@@ -44,11 +46,14 @@ The objective of this repository is to provide a template for building a deploya
 > Ensure that you have [completed Preparation](#prepare-for-the-transportation-of-the-files-for-deployment) of Files section and have currently unzipped the file in the deployment server before the below steps
 
 To provision Azure resources, follow the steps below
+
 - Open `PowerShell` in the `deploy-scripts` folder
 - Execute command `.\script-provision-complete.ps1 -environmentName "dev" -resourcegroupName "Teams-Dev-TCS"` where `environmentName` is the name of the environment and `resourcegroupName` is the name of the resource group.
 - For the first time, you will be prompted to login to Azure. Follow the instructions to login to Azure.
 - If login is succesful, the provisioning will start. The provisioning will take a few minutes to complete.
 - Once provisioning is completed, you will be able to see the screen as shown below
+
+![provision-complete](./TeamsToolkit-DeploymentReady/readme-images/provision-complete-all.png)
 
 ```bash
 
