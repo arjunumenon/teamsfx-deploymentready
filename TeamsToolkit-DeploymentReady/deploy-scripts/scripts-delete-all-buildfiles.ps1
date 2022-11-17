@@ -9,19 +9,6 @@ Clears all the build files
 Param(
 )
 
-function doDeleteAzureFunctionfiles {
-    # # Deletion for Azure Functions
-    # cd api
-    # Remove-Item -Recurse -Force .\.deployment\
-    # Remove-Item -Recurse -Force .\bin\
-    # Remove-Item -Recurse -Force .\dist\
-    # Remove-Item -Recurse -Force .\node_modules\
-    # Remove-Item -Recurse -Force .\obj\
-    # cd ..
-
-    Write-Host "Removed Azure Function Build Files.." -foreground Green
-}
-
 function doDeletionStateFiles {
     # Deletion of all state files for fresh provisioning
 
@@ -33,6 +20,30 @@ function doDeletionStateFiles {
     # Resetting the execution location to be script root
     Set-Location -Path $PSScriptRoot
     Write-Host "Removed .fx state files Files.." -foreground Green
+}
+
+function doDeleteAzureFunctionfiles {
+    # # Deletion for Azure Functions
+
+    # Setting the location to be root of the Teams Toolkit Folder and deleting files
+    $rootTeamsToolkitFolder = .\script-get-toolkitRootfolder.ps1
+    Set-Location -Path $rootTeamsToolkitFolder"\api"
+    $deletionFolders = @(
+        ".\.deployment\",
+        ".\bin\",
+        ".\dist\",
+        ".\lib\",
+        ".\node_modules\",
+        ".\obj\"
+    );
+    foreach ($folder in $deletionFolders) {
+        if (test-path $folder) {
+            Remove-Item -Recurse -Force $folder
+        }
+    }
+    # Resetting the execution location to be script root
+    Set-Location -Path $PSScriptRoot
+    Write-Host "Removed Azure Function Build Files.." -foreground Green
 }
 
 function doDeletionBotfiles {
