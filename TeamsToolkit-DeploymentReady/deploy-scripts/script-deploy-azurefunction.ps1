@@ -1,10 +1,26 @@
 <#
 .SYNOPSIS
-Deploy build files to Azure Functions
+    Deploy build files to Azure Functions
 .DESCRIPTION
+    This script will deploy the build files to Azure Functions
+
+    CREATED BY : Arjun Menon
+    CREATED ON : 2022-11-17
+
+.PARAMETER environmentName
+    The name of the Teams Toolkit environment to deploy the Azure Function to
+
+.INPUTS
+    None. You cannot pipe objects to script-delete-all-buildfiles.ps1.
+.OUTPUTS
+    None. Shows the success messages for the execution
+
 .EXAMPLE
-.\scripts-deploy-azurefunction.ps1 -environmentName "dev"
-Provision all the Azure function build files to Azure
+    PS C:\> .\script-deploy-azurefunction.ps1 -environmentName "dev"
+    Provision all the Azure function build files to Azure
+
+.NOTES
+    None
 #>
 Param(
     [Parameter(Mandatory = $true)]
