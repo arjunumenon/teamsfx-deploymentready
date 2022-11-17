@@ -24,17 +24,22 @@ function doDeleteAzureFunctionfiles {
 
 function doDeletionStateFiles {
     # Deletion of all state files for fresh provisioning
+
+    # Setting the location to be root of the Teams Toolkit Folder and deleting files
     $rootTeamsToolkitFolder = getRootlocationPath
     Set-Location -Path $rootTeamsToolkitFolder"\.fx\states"
-    
     Remove-Item -Recurse -Force .\*
+
+    # Resetting the execution location to be script root
     Set-Location -Path $PSScriptRoot
     Write-Host "Removed .fx state files Files.." -foreground Green
 }
 
 function doDeletionBotfiles {
     # Deletion for Bot
-    Set-Location -Path $PSScriptRoot"\bot"
+    # Setting the location to be root of the Teams Toolkit Folder and deleting files
+    $rootTeamsToolkitFolder = getRootlocationPath
+    Set-Location -Path $rootTeamsToolkitFolder"\bot"
     $deletionFolders = @(
         ".\.deployment\",
         ".\lib\",
@@ -45,13 +50,16 @@ function doDeletionBotfiles {
             Remove-Item -Recurse -Force $folder
         }
     }
+    # Resetting the execution location to be script root
     Set-Location -Path $PSScriptRoot
     Write-Host "Removed Bot Build Files.." -foreground Green
 }
 
 function doDeletionTabfiles {
-    # Deletion for Bot
-    Set-Location -Path $PSScriptRoot"\tabs"
+    # Deletion for Tab
+    # Setting the location to be root of the Teams Toolkit Folder and deleting files
+    $rootTeamsToolkitFolder = getRootlocationPath
+    Set-Location -Path $rootTeamsToolkitFolder"\tabs"
     $deletionFolders = @(
         ".\.deployment\",
         ".\build\",
@@ -62,12 +70,16 @@ function doDeletionTabfiles {
             Remove-Item -Recurse -Force $folder
         }
     }
+    # Resetting the execution location to be script root
     Set-Location $PSScriptRoot
     Write-Host "Removed Tab Build Files.." -foreground Green
 }
 
 function doDeletionAppackagefiles {
     # Deletion of Teams App Package Files
+    # Setting the location to be root of the Teams Toolkit Folder and deleting files
+    $rootTeamsToolkitFolder = getRootlocationPath
+    Set-Location -Path $rootTeamsToolkitFolder
     $deletionFolders = @(
         ".\build\"
     );
@@ -77,6 +89,8 @@ function doDeletionAppackagefiles {
         }
     }
 
+    # Resetting the execution location to be script root
+    Set-Location $PSScriptRoot
     Write-Host "Removed Teams App Packages" -foreground Green
 }
 
@@ -89,43 +103,24 @@ function getRootlocationPath {
     return $executionPath
 }
 
-# Set the location path of the Root folder
-function setExecutionLocation{
-    $executionPath = getRootlocationPath
-    Set-Location -Path $executionPath
-}
-
-
 function doDeletionforPortingFolder {
 
     # Delete State files
     doDeletionStateFiles
 
-    # # Delete Azure Function Files
-    # doDeleteAzureFunctionfiles
+    # Delete Azure Function Files
+    doDeleteAzureFunctionfiles
 
-    # # Delete Bot Files
-    # doDeletionBotfiles
+    # Delete Bot Files
+    doDeletionBotfiles
 
-    # # Delete Tab Files
-    # doDeletionTabfiles
+    # Delete Tab Files
+    doDeletionTabfiles
 
-    # # Delete App Package Files
-    # doDeletionAppackagefiles
+    # Delete App Package Files
+    doDeletionAppackagefiles
 
 }
 
-# setExecutionLocation
 doDeletionforPortingFolder
-
-# Write-Host $PSScriptRoot
-
-# $completePath = $PSScriptRoot
-
-# $executionPath = $completePath.Substring(0, $completePath.LastIndexOf("\"))
-
-# Write-Host $executionPath
-
-# $executionLocation = getRootlocationPath
-# Set-Location -Path $executionLocation
 
