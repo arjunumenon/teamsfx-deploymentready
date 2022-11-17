@@ -1,10 +1,17 @@
 <#
 .SYNOPSIS
-Execute the clearing of all build files for preparing for porting to production deployment
+    Execute the clearing of all build files for preparing for porting to production deployment
 .DESCRIPTION
+    Delete all the build files from the Teams Toolkit project. This script is to prepare for porting to production deployment.
 .EXAMPLE
-.\script-delete-all-buildfiles.ps1 
-Clears all the build files
+    PS C:\> .\script-delete-all-buildfiles.ps1 
+    Clears all the build files
+.INPUTS
+    Inputs (if any)
+.OUTPUTS
+    Output (if any)
+.NOTES
+    This script is to prepare for porting to production deployment.
 #>
 Param(
 )
