@@ -3,6 +3,9 @@
     Execute the clearing of all build files for preparing for porting to production deployment
 .DESCRIPTION
     Delete all the build files from the Teams Toolkit project. This script is to prepare for porting to production deployment.
+
+    CREATED BY : Arjun Menon
+    CREATED ON : 2022-11-17
 .EXAMPLE
     PS C:\> .\script-delete-all-buildfiles.ps1 
     Clears all the build files
