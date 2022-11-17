@@ -33,7 +33,7 @@ The objective of this repository is to provide a template for building a deploya
 > - Open `PowerShell` in the `deploy-scripts` folder.
 > - Execute the command `.\script-delete-all-buildfiles.ps1` to delete all the build files from the Teams Toolkit project folder.
 > - Once execution is complete, you will see a result like the one shown below:
-> ![delete-all-image](./readme-images/delete-all-image.png)
+> ![delete-all-image](./teamsfx-deploymentready/readme-images/delete-all-image.png)
 > - This will ensure that only needed files are remaining the Teams Toolkit project folder.
 > - Then zip the complete project folder and move the zip file to the deployment server.
 >
