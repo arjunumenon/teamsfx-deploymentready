@@ -28,17 +28,21 @@ Param(
 )
 
 function doDeploymentComplete {
+    Write-Host "... Initiating the deployment of all the files to Azure.... " -foreground Yellow
+
     # Deploy Bot files
-    .\scripts-deploy-bots.ps1 -environmentName $environmentName
+    .\script-deploy-bots.ps1 -environmentName $environmentName
 
     # Deploy Azure Function files
-    .\scripts-deploy-azurefunction.ps1 -environmentName $environmentName
+    .\script-deploy-azurefunction.ps1 -environmentName $environmentName
 
     # Deploy Tab Files
-    .\scripts-deploy-tabs.ps1 -environmentName $environmentName
+    .\script-deploy-tabs.ps1 -environmentName $environmentName
 
     # Package Teams app for the Environment
-    .\scripts-package-teamsapp.ps1 -environmentName $environmentName
+    .\script-package-teamsapp.ps1 -environmentName $environmentName
+
+    Write-Host "Completed all the deployment to Azure" -foreground Green
 }
 
 doDeploymentComplete
