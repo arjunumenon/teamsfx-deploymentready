@@ -71,7 +71,7 @@ Next step which we need to do is to deploy the resources to Azure. We have creat
 
 [2.1 Deploy all resources at once](#21-deploy-all-resources-at-once)
 
-2.2 Deploy resources individually
+[2.2 Deploy resources individually](#22-deploy-resources-individually)
 
 #### 2.1 Deploy all resources at once
 
